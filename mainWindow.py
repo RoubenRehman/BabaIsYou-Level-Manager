@@ -8,7 +8,7 @@ class SetPathDialog(QtWidgets.QDialog):
 
     def __init__(self, *args, **kwargs):
         super(SetPathDialog, self).__init__(*args, **kwargs)
-        uic.loadUi('SetPath.ui', self)
+        uic.loadUi('./GUI/SetPath.ui', self)
 
         # finding buttons
         self.browseButton = self.findChild(QtWidgets.QPushButton, 'BrowseButton')
@@ -41,7 +41,7 @@ class SetPathDialog(QtWidgets.QDialog):
 class LevelManager(QtWidgets.QMainWindow):
     def __init__(self):
         super(LevelManager, self).__init__()
-        uic.loadUi('MainWindow.ui', self)
+        uic.loadUi('./GUI/MainWindow.ui', self)
 
         # finding Label
         self.statusLabel = self.findChild(QtWidgets.QLabel, 'StatusLabel')
