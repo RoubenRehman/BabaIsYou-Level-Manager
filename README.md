@@ -1,7 +1,7 @@
 # BabaIsYou-Level-Manager
 A fan-made level manager to import and export custom Baba Is You levels
 
-[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://opensource.org/licenses/MIT) | [![Python](https://img.shields.io/badge/python-3.8-blue)](https://www.python.org)
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://opensource.org/licenses/MIT)  [![Python](https://img.shields.io/badge/python-3.8-blue)](https://www.python.org)
 
 ## Introduction
 
