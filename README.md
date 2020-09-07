@@ -32,5 +32,10 @@ To export a level, click on it in the list and hit the "Export" button. On the f
 ### Importing
 To import a level, click the "Import" button. A Folder Dialog will open, choose the .zip file of the level to be imported. The Level Manager extracts the contents of this archive to the Baba is You custom levels folder. To avoid overwriting already existing levels, it first checks if the file names of the to-be-imported level is already taken. If this is the case, the Manager automatically uses a different `<number>level` filename. No existing levels should be overwritten that way.
 
-### Disclaimer
+
+
+
+
+# Disclaimer
+
 I do not own any rights regarding the original Baba is You game, all rights lie with the author(s) of the game. This project is fan-made and only intended to be used as a rough alternative until the official level editor and its level-sharing mechanic is released.
