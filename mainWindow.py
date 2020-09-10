@@ -46,9 +46,13 @@ class LevelManager(QtWidgets.QMainWindow):
         # finding Label
         self.statusLabel = self.findChild(QtWidgets.QLabel, 'StatusLabel')
 
+        # finding SpinBox
+        self.setExportNameSpinBox = self.findChild(QtWidgets.QDoubleSpinBox, 'SetExportNameSpinbox')
+
         # finding buttons
         self.importButton = self.findChild(QtWidgets.QPushButton, 'ImportButton')
         self.exportButton = self.findChild(QtWidgets.QPushButton, 'ExportButton')
+        self.exportSetNameButton = self.findChild(QtWidgets.QPushButton, 'ExportSetNameButton')
         self.refreshButton = self.findChild(QtWidgets.QPushButton, 'RefreshButton')
         self.steamPathButton = self.findChild(QtWidgets.QPushButton, 'SteamPathButton')
         self.savePathButton = self.findChild(QtWidgets.QPushButton, 'SavePathButton')
@@ -56,6 +60,7 @@ class LevelManager(QtWidgets.QMainWindow):
         # connecting buttons
         self.importButton.clicked.connect(self.importButtonClicked)
         self.exportButton.clicked.connect(self.exportButtonClicked)
+        self.exportSetNameButton.clicked.connect(self.exportSetNameButtonClicked)
         self.refreshButton.clicked.connect(self.refreshButtonClicked)
         self.steamPathButton.clicked.connect(self.steamPathButtonClicked)
         self.savePathButton.clicked.connect(self.savePathButtonClicked)
@@ -157,9 +162,13 @@ class LevelManager(QtWidgets.QMainWindow):
             self.displayErrorBox("Failed to open zip archive")
             self.statusLabel.setText("")
 
-    def exportButtonClicked(self):
-        #print("Export")
+    def exportSetNameButtonClicked(self):
+        self.exportLevel(fileName=str(int(self.setExportNameSpinBox.value())))
 
+    def exportButtonClicked(self):
+        self.exportLevel()
+
+    def exportLevel(self, fileName = None):
         # if no SAVEPATH is set yet, do this now and save in config
         if not self.savePath:
             self.savePathButtonClicked()
@@ -175,12 +184,16 @@ class LevelManager(QtWidgets.QMainWindow):
 
                 # getting files to zip
                 filesToZip = [x for x in self.files if x.split(".")[0] == level]
+
                 #print(filesToZip)
 
                 # zipping files
                 with zp(os.path.join(self.savePath, self.selectedIndex + ".zip"), "w") as zip:
                     for file in filesToZip:
-                        zip.write(os.path.join(self.steamPath, file), arcname=file)
+                        if fileName:
+                            zip.write(os.path.join(self.steamPath, file), arcname=fileName+'level.'+file.split(".", 1)[1])
+                        else:
+                            zip.write(os.path.join(self.steamPath, file), arcname=file)
 
                 self.statusLabel.setText("Done exporting!")
 
