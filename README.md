@@ -21,8 +21,6 @@ Run the script using:
 python MainWindow.py
 ```
 
-Binaries for Linux and Windows will be available soon.
-
 ### On first Startup
 On first startup, the Level Manager asks you to set PATH to your steamapps folder in which Baba is You is installed. The PATH is saved in BabaIsYouLevelManager/steampath.txt under your $HOME directory. It will be loaded automatically from that point on and can be changed by clicking the 'Set Steam Path' button.
 
